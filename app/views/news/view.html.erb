@@ -1,0 +1,40 @@
+<% news = @news %>
+
+<div class = "row">
+	<div class = "col-xs-4"></div>
+	<div class = "col-xs-4">
+	<table class="table table-bordered">
+		<tr>
+			<th rowspan=1 > Total </th>
+			<td> <%= news.count %> </td>
+		</tr>
+		<tr>
+			<th rowspan = 1> Ready </th>
+			<td> <%= news.where("ready = 1").count %> </td>
+		</tr>
+		<tr>
+			<th rowspan = 1> Blocked </th>
+			<td> <%= news.where("ready = 0").count %> </td>
+		</tr>
+	</table>
+	</div>
+	<div class = "col-xs-4"></div>
+	
+
+
+<table class="table table-bordered">
+	<tr>
+		<th>Headline</th>
+		<th>Description</th>
+		<th>URL</th>
+		<th>Blocked</th>		
+	</tr>
+	<% news.each do |n| %>
+		<tr>
+			<td> <%= n.headline %> </td>
+			<td> <%= n.description %> </td>
+			<td> <%= link_to n.url.truncate(30) %> </td>
+			<td> <%= n.ready == 1 ? "No" : "Yes" %> </td>
+		</tr>
+	<% end %>
+</table>
