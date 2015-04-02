@@ -11,13 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328100852) do
+ActiveRecord::Schema.define(version: 20150402104012) do
+
+  create_table "keywords", force: true do |t|
+    t.string   "name"
+    t.integer  "h1b",        default: 0
+    t.integer  "h1r",        default: 0
+    t.integer  "h2b",        default: 0
+    t.integer  "h2r",        default: 0
+    t.integer  "h3b",        default: 0
+    t.integer  "h3r",        default: 0
+    t.integer  "hg3b",       default: 0
+    t.integer  "hg3r",       default: 0
+    t.integer  "d1b",        default: 0
+    t.integer  "d1r",        default: 0
+    t.integer  "d2b",        default: 0
+    t.integer  "d2r",        default: 0
+    t.integer  "d3b",        default: 0
+    t.integer  "d3r",        default: 0
+    t.integer  "dg3b",       default: 0
+    t.integer  "dg3r",       default: 0
+    t.integer  "total",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news", force: true do |t|
-    t.string   "headline"
-    t.string   "url"
+    t.string   "headline",    limit: 500
+    t.text     "url"
     t.integer  "ready"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
