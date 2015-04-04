@@ -33,7 +33,7 @@
 		<tr>
 			<td> <%= n.headline %> </td>
 			<td> <%= n.description %> </td>
-			<td> <%= link_to n.url.truncate(30) %> </td>
+			<td> <%= link_to n.url.truncate(30), n.url %> </td>
 			<td> <%= n.ready == 1 ? "No" : "Yes" %> </td>
 		</tr>
 	<% end %>

@@ -1,0 +1,11 @@
+GOOGLE, Social Media
+
+SELECT name, sum(h1r + h2r + h3r + hg3r) as ready_head_count, sum(d1r + d2r + d3r +dg3r) as ready_desc_count, sum(h1b + h2b + h3b + hg3b) as blocked_head_count, sum(d1b + d2b + d3b +dg3b) as blocked_desc_count, total FROM `keywords`
+group by name
+order by total desc
+
+SELECT tag_id, count(tag_id) FROM `news_tags`
+left join companies_in_news on 
+news_tags.news_id = companies_in_news.news_id
+where companies_in_news.company_id = 346
+group by tag_id

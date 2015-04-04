@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402104012) do
+ActiveRecord::Schema.define(version: 20150403061904) do
 
   create_table "keywords", force: true do |t|
     t.string   "name"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20150402104012) do
     t.text     "url"
     t.integer  "ready"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news_keywords", force: true do |t|
+    t.integer  "keyword_id"
+    t.integer  "news_id"
+    t.integer  "head_count",            default: 0
+    t.string   "keyword_head_position", default: "-1"
+    t.integer  "desc_count",            default: 0
+    t.string   "keyword_desc_position", default: "-1"
+    t.integer  "ready"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

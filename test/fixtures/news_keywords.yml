@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keyword_id: 1
+  news_id: 1
+  head_count: 1
+  desc_count_integer: MyString
+  ready: 1
+
+two:
+  keyword_id: 1
+  news_id: 1
+  head_count: 1
+  desc_count_integer: MyString
+  ready: 1
