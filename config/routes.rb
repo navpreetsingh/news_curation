@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   get 'news/view'
 
-  get 'news/analysis'
+  get 'news/analysis1'
+  get 'news/analysis2'
+  get 'news/analysis3'
+  get 'news/analysis4'
+  get 'news/analysis5'
+  get 'news/make_db'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

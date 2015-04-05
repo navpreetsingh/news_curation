@@ -1,0 +1,52 @@
+<h2>ANALYSIS2 (Company: "Google", Keyword: "Social Media") </h2>
+<h4><%= link_to "Next Page", "#" %> </h4>
+
+<div class = "row">
+	<div class = "col-xs-1"></div>
+	<div class = "col-xs-10">
+		<table class="table table-bordered">
+		<tr>
+			<th rowspan = 2 style = "padding-top: 25px;"> Keyword </th>
+			<th colspan = 5> Heading </th>			
+		</tr>
+		<tr>
+			<th>Count 0</th>			
+			<th>Count 1</th>
+			<th>Count 2</th>					
+		</tr>
+		<% @keys.each do |key| %>
+			<% data1 = @imp_key1.where("keyword_id = ?", key) %>
+			<% data2 = @imp_key2.where("keyword_id = ?", key) %>
+			<tr>
+				<td> <%= data1.first.name %> </td>
+				<% (0..2).each do |h| %>
+					<td> 
+						<% (0..4).each do |d| %>
+							Desc(<%= d < 4 ? d : ">3" %>) (B/R):	
+													 
+							<% if d < 4 %>
+								<% kd = data1.where("head_count =  ? and desc_count = ?", h, d).order(ready_sign: :asc).group("ready_sign, head_count, desc_count, keyword_id") %>
+							<% else %>
+								<% kd = data2.where("head_count =  ? and desc_count > 3 ", h).group(:ready_sign).order(ready_sign: :asc) %>
+								<% debugger %>
+							<% end %>
+														
+							( 	<% if kd.to_a.count == 0 %>
+									0 / 0) , SR: (0
+								<% elsif kd.to_a.count == 1 %>
+									<% kd = kd.first %>
+									<%= kd.ready_sign == 0 ? kd.rs : 0 %> / <%= kd.ready_sign == 1 ? kd.rs : 0 %>)
+									, SR: (<%= kd.ready_sign == 1 ? 100 : 0 %>
+								<% else %>
+									<%= kd[0].rs %> / <%= kd[1].rs %>) 
+									, SR: (<%= (kd[1].rs / (kd[1].rs + kd[0].rs).to_f * 100).round(2) %>
+								<% end %>
+							%)<br>
+						<% end %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</div>
+	<div class = "col-xs-1"></div>
+</div>

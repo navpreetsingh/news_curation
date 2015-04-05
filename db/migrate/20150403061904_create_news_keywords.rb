@@ -7,7 +7,7 @@ class CreateNewsKeywords < ActiveRecord::Migration
       t.string :keyword_head_position
       t.integer :desc_count, :default => 0
       t.string :keyword_desc_position
-      t.integer :ready
+      t.integer :ready_sign
 
       t.timestamps
     end

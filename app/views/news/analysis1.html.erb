@@ -1,0 +1,73 @@
+<h2>ANALYSIS1 (Company: "Google", Keyword: "Social Media") </h2>
+<h4><%= link_to "Next Page", news_analysis2_path %> </h4>
+
+<div class = "row">
+	<div class = "col-xs-1"></div>
+	<div class = "col-xs-10">
+		<table class="table table-bordered">
+		<tr>
+			<th rowspan = 2 style = "padding-top: 25px;"> Keyword </th>
+			<th colspan = 4> Heading </th>
+			<th colspan = 4> Description </th>
+			<th rowspan = 2 style = "padding-top: 25px;"> Total Occurences </th>
+		</tr>
+		<tr>			
+			<th>Count 1</th>
+			<th>Count 2</th>
+			<th>Count 3</th>
+			<th>Count >3</th>
+			<th>Count 1</th>
+			<th>Count 2</th>
+			<th>Count 3</th>
+			<th>Count >3</th>			
+		</tr>
+		<% @keywords.each do |key| %>
+			<tr>
+				<td class = "an1"> <%= key.name %> </td>
+				<td>
+					<b> Bl: </b> <%= key.h1b %> <br>
+					<b> Rd: </b> <%= key.h1r %> <br> 
+					<b> SR: </b> <%= key.h1r > 0 ? ((key.h1r/(key.h1r + key.h1b).to_f) * 100).round(2) : 0 %>%
+				</td>
+				<td>
+					<b> Bl: </b> <%= key.h2b %> <br>
+					<b> Rd: </b> <%= key.h2r %> <br> 
+					<b> SR: </b> <%= key.h2r > 0 ? ((key.h2r/(key.h2r + key.h2b).to_f) * 100).round(2) : 0 %>%
+				</td>
+				<td>
+					<b> Bl: </b> <%= key.h3b %> <br>
+					<b> Rd: </b> <%= key.h3r %> <br> 
+					<b> SR: </b> <%= key.h3r > 0 ? ((key.h3r/(key.h3r + key.h3b).to_f) * 100).round(2) : 0 %>%
+				</td>
+				<td>
+					<b> Bl: </b> <%= key.hg3b %> <br>
+					<b> Rd: </b> <%= key.hg3r %> <br> 
+					<b> SR: </b> <%= key.hg3r > 0 ? ((key.hg3r/(key.hg3r + key.hg3b).to_f) * 100).round(2) : 0 %>%
+				</td>
+
+				<td>
+					<b> Bl: </b> <%= key.d1b %> <br>
+					<b> Rd: </b> <%= key.d1r %> <br> 
+					<b> SR: </b> <%= key.d1r > 0 ? ((key.d1r/(key.d1r + key.d1b).to_f) * 100).round(2) : 0 %>%
+				</td>
+				<td>
+					<b> Bl: </b> <%= key.d2b %> <br>
+					<b> Rd: </b> <%= key.d2r %> <br> 
+					<b> SR: </b> <%= key.d2r > 0 ? ((key.d2r/(key.d2r + key.d2b).to_f) * 100).round(2) : 0 %>%
+				</td>
+				<td>
+					<b> Bl: </b> <%= key.d3b %> <br>
+					<b> Rd: </b> <%= key.d3r %> <br> 
+					<b> SR: </b> <%= key.d3r > 0 ? ((key.d3r/(key.d3r + key.d3b).to_f) * 100).round(2) : 0 %>%
+				</td>
+				<td>
+					<b> Bl: </b> <%= key.dg3b %> <br>
+					<b> Rd: </b> <%= key.dg3r %> <br> 
+					<b> SR: </b> <%= key.dg3r > 0 ? ((key.dg3r/(key.dg3r + key.dg3b).to_f) * 100).round(2) : 0 %>%
+				</td>
+				<td class = "an1"><%= key.total %> </td>
+			</tr>
+		<%- end %>
+	</div>
+	<div class = "col-xs-1"></div>
+</div>

@@ -1,2 +1,2 @@
-class NewsKeyword < ActiveRecord::Base
+class NewsKeyword < ActiveRecord::Base	
 end

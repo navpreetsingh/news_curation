@@ -19,3 +19,8 @@ head_count > 0 and
 desc_count > 0
 group by keyword_id
 order by blocked desc
+
+SELECT keywords.name, head_count, desc_count, ready, count(ready) FROM `news_keywords`
+INNER JOIN keywords on 
+keywords.id = news_keywords.keyword_id
+group by ready, head_count, desc_count, keyword_id
