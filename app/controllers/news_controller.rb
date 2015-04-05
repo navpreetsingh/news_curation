@@ -32,6 +32,7 @@ class NewsController < ApplicationController
   	StoringData.keywords_count
   	StoringData.useless_keywords
   	StoringData.major_keywords_count
+  	redirect_to root_path
   end
 
 end
