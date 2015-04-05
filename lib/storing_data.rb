@@ -1,8 +1,7 @@
 class StoringData
 	class << self
 
-		def csv_data
-			News.connection
+		def csv_data      
 			file = File.read(Rails.root + "lib/news.csv").split("\n")
       		file.each do |fs|
       			second_split = fs.split("\",\"")
