@@ -1,0 +1,29 @@
+describe "Encryption" do
+  
+  describe "failure" do
+    it "should not encrypt empty content" do
+      
+    end
+
+    it "should not encrypt content with key - 0 or 1"
+
+    end
+
+    it "should not encrypt content with key whose number is more than or equal to content length"
+
+    end
+
+  end
+
+  describe "success" do
+    #where content = "Lets meet at five"
+    
+    it "should encrypt content with key - 3"
+      encrypted_content == "lmavesettietef" 
+    end
+
+    it "should encrypt content with key - 3"
+      encrypted_content == "leveetietmafst" 
+    end
+  end
+end

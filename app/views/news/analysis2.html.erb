@@ -27,8 +27,7 @@
 							<% if d < 4 %>
 								<% kd = data1.where("head_count =  ? and desc_count = ?", h, d).order(ready_sign: :asc).group("ready_sign, head_count, desc_count, keyword_id") %>
 							<% else %>
-								<% kd = data2.where("head_count =  ? and desc_count > 3 ", h).group(:ready_sign).order(ready_sign: :asc) %>
-								<% debugger %>
+								<% kd = data2.where("head_count =  ? and desc_count > 3 ", h).group(:ready_sign).order(ready_sign: :asc) %>								
 							<% end %>
 														
 							( 	<% if kd.to_a.count == 0 %>
